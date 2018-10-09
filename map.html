@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>map guiji</title>
+    <style>
+        html {
+            height: 100%
+        }
+
+        body {
+            height: 100%;
+            margin: 0px;
+            padding: 0px
+        }
+
+        #container {
+            height: 100%
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+    </div>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=tmdlme5SbvfVhjI2nQp2AQqGWfgY5P42"></script>
+    <script type="text/javascript">
+        var map = new BMap.Map("container");
+        var point = new BMap.Point(121.47, 31.23);
+        map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+        map.centerAndZoom(point, 10);
+        var point1 = new BMap.Point(121.47, 31.25);
+        var point2 = new BMap.Point(121.52, 31.39);
+        var point3 = new BMap.Point(121.65, 31.0012);
+        var marker1 = new BMap.Marker(point1);   // 创建标注 
+        var marker2 = new BMap.Marker(point2);   // 创建标注 
+        var marker3 = new BMap.Marker(point3);   // 创建标注 
+        map.addOverlay(marker1);
+        map.addOverlay(marker2);
+        map.addOverlay(marker3);
+
+        var polyline = new BMap.Polyline([
+            point1,
+            point2,
+            point3
+        ], { strokeColor: "blue", strokeWeight: 6, strokeOpacity: 0.5 });
+        map.addOverlay(polyline); 
+    </script>
+</body>
+
+</html>
